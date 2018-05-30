@@ -72,6 +72,24 @@
 - got test working with Item in db, but no return id, figure out..
   use callback spit back json
 
+- just checked in code, work on load testing
+- yikes, need to figure out api gateway....
+  - create api and usages resources along
+  - create post method on usages
+- api test works but need to fix returned uuid, always the same...
+  (or perhaps it was my imagination since last few chars the same)
+
+- create ad-hoc testing stage, have url to hit locally now
+  - https://1zszg024ci.execute-api.us-east-1.amazonaws.com/testing
+  - curl -X POST -H "Content-Type: application/json" --data '{"patientId":"100","timestamp":"Tue Nov 01 2016 09:11:51 GMT-0500 (CDT)","medication":"Albuterol"}' https://1zszg024ci.execute-api.us-east-1.amazonaws.com/testing/api/usages
+
+- curl returning properly and data being inserted into db, now ready
+  for load testing... try locally first, will add config file but not
+  save package in order to reduce size.
+
+
+
+
 
 
 
