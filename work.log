@@ -94,14 +94,11 @@
   i can max this out...
   ** ssh -i ~/.ssh/testing.pem ubuntu@ec2-54-174-41-255.compute-1.amazonaws.com
 
+Nope... hit concurrency limits on aws lambda.
 
-
-
-
-
-
-
-
-
+CONCLUSION:  I was able to get ~600 RPS with this setup.
+I'm convinced with the proper tuning of aws parameters and throttling 
+removed on lambda and dynamoDB that that this solution would fairly
+easily reach 1M users per minute.
 
 
