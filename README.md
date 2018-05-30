@@ -27,7 +27,7 @@ The API consists of a single endpoint which receives data when a patient uses th
 {
     "patientId":100,
     "timestamp":"Tue Nov 01 2016 09:11:51 GMT-0500 (CDT)",
-    "medication":"Albuterol",
+    "medication":"Albuterol"
 }
 ````
 

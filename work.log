@@ -1,0 +1,81 @@
+- inspect the project
+
+- use aws, get familar with new tools
+
+- decide on persistent key-value db, think learning, setup, config,
+  scaling, throughput, cli, testing, running locally...
+
+  NO  - redis, fast but not familiar with persistence setup
+  NO  - mongoDB, what Propeller uses, fast, but too complicated for this
+        and setup/config too time consuming on AWS
+  NO  - rocksDB, super fast, cons similar to mongoDB
+  YES - dynamoDB, native aws tool, scalable, small learning curve
+
+- load testing...
+   Just use Artillery, versatile, pretty straight forward, possible
+   Lambda integration, easy.
+
+- decide on building blocks
+  Option 1:
+    - Fastify instead Express
+    - Elastic Load Balancer
+    - Simple scaling create bunch of beefy instances
+    PROS: long term solution with more control once functional
+          requirements figured out, versatile for change
+    CONS: too many moving parts to get working in 2 hours given
+          simple explicit requirements.  Might rack up a big bill
+          if not careful
+
+  Option 2:
+    - AWS Lambda with Node.js
+    PROS: quick, tons of info, easy scaling and testing, more
+          configuration than programming
+    CONS: haven't used it yet, might rack up a big bill if not 
+          careful, more configuration than programming
+
+
+- Going with OPTION 2!
+  - play around and get super basic lambda function working
+  - get dynamoDB creating Items for request
+  - figure out table structure, just use uuid as sorting index
+    assuming many creates per patient
+
+
+- strip anything unessecary from busyapi
+  - remove it all and re-npm init
+  - get writeUsage lambda function working
+
+- get work flow going, zipping project, uploading, testing.
+  not going to worry about efficient deployment process right
+  now, one off proof of concept
+
+- try out local dynamoDB, get familiar
+** java -Djava.library.path=./DynamoDBLocal_lib -jar DynamoDBLocal.jar -sharedDb
+** aws dynamodb --endpoint-url http://localhost:8000 describe-table --table-name Usages
+
+- don't even need express server for lambda, hope it's not cheating...
+
+** zip -r ../busyapi.zip *
+
+- lambda role, make admin, refine later if time.
+- create lambda test using readme json
+
+- not going to worry too much about error handling right now, will
+  if there's enough time.
+
+- deal with lambda config minutiae
+- fix sloppy mistakes from strip out
+- almost tempted to figure out aws cli instead of using web interface..
+- looked into aws serverless np, but spent too much time
+- set TABLE_NAME key/value in lambda config
+
+- got test working with Item in db, but no return id, figure out..
+  use callback spit back json
+
+
+
+
+
+
+
+
