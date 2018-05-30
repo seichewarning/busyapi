@@ -87,6 +87,14 @@
   for load testing... try locally first, will add config file but not
   save package in order to reduce size.
 
+- got initial artillery config working and inserting unique patientId's
+  ** artillery run loadTest.yml
+
+- setting write capacity on db to 500 and running a t2.xlarge to see if
+  i can max this out...
+  ** ssh -i ~/.ssh/testing.pem ubuntu@ec2-54-174-41-255.compute-1.amazonaws.com
+
+
 
 
 

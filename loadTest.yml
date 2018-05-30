@@ -1,0 +1,18 @@
+config:
+  target: 'https://1zszg024ci.execute-api.us-east-1.amazonaws.com/testing'
+  phases:
+    - duration: 5
+      arrivalRate: 20
+  processor: "./customJSON.js"
+  defaults:
+    headers:
+      Content-Type: 'application/json'
+scenarios:
+  - flow:
+    - post:
+        url: "/api/usages"
+        beforeRequest: "setJSONBody"
+        json:
+          timestamp: "Tue Nov 01 2016 09:11:51 GMT-0500 (CDT)"
+          medication: "Albuterol"
+
